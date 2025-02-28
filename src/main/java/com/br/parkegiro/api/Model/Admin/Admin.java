@@ -3,6 +3,7 @@ package com.br.parkegiro.api.Model.Admin;
 import com.br.parkegiro.api.Model.Admin.dto.AdminAddDTO;
 import com.br.parkegiro.api.Model.Company.Company;
 import jakarta.persistence.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 @Table(name = "admin")
@@ -29,6 +30,11 @@ public class Admin {
         this.cpf = admin.cpf();
         this.phoneNumber = admin.phoneNumber();
         this.email = admin.email();
-        this.password = admin.password();
+        this.password = encrypt(admin.password());
+    }
+
+    private String encrypt(String password) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        return encoder.encode(password);
     }
 }
