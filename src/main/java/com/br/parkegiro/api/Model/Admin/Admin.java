@@ -31,6 +31,7 @@ public class Admin {
         this.phoneNumber = admin.phoneNumber();
         this.email = admin.email();
         this.password = encrypt(admin.password());
+        this.company = new Company(admin.company());
     }
 
     private String encrypt(String password) {
