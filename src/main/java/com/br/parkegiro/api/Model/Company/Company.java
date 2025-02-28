@@ -1,6 +1,6 @@
 package com.br.parkegiro.api.Model.Company;
 
-import com.br.parkegiro.api.Model.Admin.Admin;
+import com.br.parkegiro.api.Model.Company.dto.CompanyAddDTO;
 import com.br.parkegiro.api.Model.Logo.Logo;
 import jakarta.persistence.*;
 
@@ -19,5 +19,11 @@ public class Company {
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "logo_id", referencedColumnName = "id")
     public Logo logo;
+
+    public Company(CompanyAddDTO company) {
+        this.name = company.name();
+        this.commercialName = company.commercialName();
+        this.cnpj = company.cnpj();
+    }
 
 }
