@@ -16,9 +16,6 @@ public class Company {
     public String commercialName;
     public String cnpj;
 
-    @OneToOne(mappedBy = "company")
-    public Admin admin;
-
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "logo_id", referencedColumnName = "id")
     public Logo logo;
