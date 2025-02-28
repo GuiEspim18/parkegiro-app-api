@@ -1,5 +1,6 @@
 package com.br.parkegiro.api.Model.Admin;
 
+import com.br.parkegiro.api.Model.Company.Company;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,5 +18,7 @@ public class Admin {
     public String email;
     private String password;
 
-
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "company_id", referencedColumnName = "id")
+    public Company company;
 }
