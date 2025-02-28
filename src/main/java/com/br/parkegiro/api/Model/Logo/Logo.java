@@ -13,7 +13,4 @@ public class Logo {
 
     public String fileName;
 
-    @OneToOne(mappedBy = "logo")
-    public Company company;
-
 }
