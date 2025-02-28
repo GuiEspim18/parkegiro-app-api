@@ -24,6 +24,9 @@ public class Admin {
     @JoinColumn(name = "company_id", referencedColumnName = "id")
     public Company company;
 
+    public Admin() {
+    }
+
     public Admin(AdminAddDTO admin) {
         this.name = admin.surname();
         this.surname = admin.surname();

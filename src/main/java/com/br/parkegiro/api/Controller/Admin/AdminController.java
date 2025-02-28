@@ -22,4 +22,9 @@ public class AdminController {
         return adminService.create(admin);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getOne(@PathVariable("id") Long id) {
+        return adminService.getOne(id);
+    }
+
 }

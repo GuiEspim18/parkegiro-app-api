@@ -3,6 +3,7 @@ package com.br.parkegiro.api.Controller.Admin;
 import com.br.parkegiro.api.Model.Admin.Admin;
 import com.br.parkegiro.api.Model.Admin.AdminRepository;
 import com.br.parkegiro.api.Model.Admin.dto.AdminAddDTO;
+import com.br.parkegiro.api.Model.Admin.dto.AdminGetOneDTO;
 import com.br.parkegiro.api.Utils.Responses.Responses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,14 @@ public class AdminService extends Responses {
             return ok("Administrador cadastrado com sucesso");
         }
         return conflict("Administrador já cadastrado!");
+    }
+
+    public ResponseEntity<?> getOne(Long id) {
+        Admin admin = adminRepository.findById(id).orElse(null);
+        if (admin == null) {
+            return notFound("Este administrador não existe");
+        }
+        return ok(new AdminGetOneDTO(admin));
     }
 
 }

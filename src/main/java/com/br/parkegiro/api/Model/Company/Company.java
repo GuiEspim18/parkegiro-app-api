@@ -20,6 +20,9 @@ public class Company {
     @JoinColumn(name = "logo_id", referencedColumnName = "id")
     public Logo logo;
 
+    public Company() {
+    }
+
     public Company(CompanyAddDTO company) {
         this.name = company.name();
         this.commercialName = company.commercialName();
