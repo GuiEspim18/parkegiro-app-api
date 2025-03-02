@@ -27,6 +27,9 @@ public class Company {
         this.name = company.name();
         this.commercialName = company.commercialName();
         this.cnpj = company.cnpj();
+        if (company.logo() != null) {
+            this.logo = new Logo(company.logo());
+        }
     }
 
 }
