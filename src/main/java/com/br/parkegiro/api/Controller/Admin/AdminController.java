@@ -27,4 +27,9 @@ public class AdminController {
         return adminService.getOne(id);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathVariable("id") Long id) {
+        return adminService.delete(id);
+    }
+
 }

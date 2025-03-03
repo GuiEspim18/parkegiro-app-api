@@ -36,4 +36,13 @@ public class AdminService extends Responses {
         return ok(new AdminGetOneDTO(admin));
     }
 
+    public ResponseEntity<?> delete(Long id) {
+        Admin found = adminRepository.findById(id).orElse(null);
+        if (found != null) {
+            adminRepository.delete(found);
+            return ok("Administrador deletado com sucesso!");
+        }
+        return notFound("Este administrador não existe");
+    }
+
 }
